@@ -1,1 +1,85 @@
-<h1>Hello World Wide Web!</h1>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Untitled</title>
+
+  </head>
+  <body>
+    <div id="output"> </div>
+    <p id="para">
+      text
+    </p>
+    <button>
+      Red
+    </button>
+    <button>
+      Blue
+    </button>
+    <h1 id="time"></h1>
+    
+    <p id="while"></p>
+    
+    <script>
+      function changeColor (newColor) {
+        const elem = document.getElementById("para")
+        elem.style.color = newColor;
+      }
+      document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          changeColor(event.target.textContent.toLowerCase());
+        });
+      });
+
+      function add (a, b) {
+
+        return a + b;
+      }
+      let result = add(3, 14);
+
+      function log (message) {
+        console.log(message);
+
+
+        document.getElementById("output").innerHTML +=
+          "<p>" + message + "</p>";
+        document.getElementById("output").innerHTML += "<p>" + result + "</p>";
+      }
+      log("hello world");
+
+      /////////
+      const time = 10; //new Date().getHours();
+      let greeting;
+      let wake = false;
+
+      if (time <= 9 || wake !== true) {
+        greeting = "morning";
+      } 
+      
+      else if (time < 14) {
+        greeting = "good afternoon";
+
+      } 
+      
+      else {
+        greeting = "good night";
+
+      }
+
+     document.getElementById("time").innerHTML = greeting;
+      
+      let text = "";
+      let i = 0;
+      do {
+        text += "the number is " + i + "<br>";
+         i++
+      }
+      while (i < 10); 
+    
+      
+       document.getElementById("while").innerHTML = text;
+      
+    </script>
+
+  </body>
+
+</html>
